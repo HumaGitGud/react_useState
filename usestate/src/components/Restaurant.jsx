@@ -1,4 +1,12 @@
+import { useState } from "react";
+
 function Restaurant(props) {
+  const [hours, setHours] = useState(false);
+  const [menu, setMenu] = useState(false);
+
+  const handleHours = () => setHours(prevState => !prevState);
+  const handleMenu = () => setMenu(prevState => !prevState);
+
   return (
     <div className="restaurant">
       <img src={props.restaurant.image} alt={props.name} />
@@ -9,8 +17,8 @@ function Restaurant(props) {
         <li>{props.restaurant.cuisine}</li>
         <li>{props.restaurant.rating}</li>
       </ul>
-      <button>Hours</button>
-      <button>Menu</button>
+      <button onClick={handleHours}>Hours</button>
+      <button onClick={handleMenu}>Menu</button>
     </div>
   );
 }
