@@ -9,7 +9,7 @@ function Restaurant(props) {
 
   return (
     <div className="restaurant">
-      <img src={props.restaurant.image} alt={props.name} />
+      <img src={props.restaurant.image} alt={props.restaurant.name} />
       <h2>{props.restaurant.name}</h2>
       <ul>
         <li>{props.restaurant.address}</li>
@@ -17,7 +17,7 @@ function Restaurant(props) {
         <li>{props.restaurant.cuisine}</li>
         <li>{props.restaurant.rating}</li>
       </ul>
-      <button onClick={handleHours}>Hours</button>
+      <button onClick={handleHours}>Menu</button>
       {hours && (
         <ul>
           {props.restaurant.menu.map((menuItem, index) => (
@@ -25,7 +25,7 @@ function Restaurant(props) {
           ))}
         </ul>
       )}
-      <button onClick={handleMenu}>Menu</button>
+      <button onClick={handleMenu}>Hours</button>
       {menu && (
         <ul>
           {Object.entries(props.restaurant.hours).map(([day, time]) => (
